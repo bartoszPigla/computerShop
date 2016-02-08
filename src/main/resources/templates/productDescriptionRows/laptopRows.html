@@ -1,0 +1,62 @@
+<th:block th:fragment="laptopRows">
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.displaySize}"></th>
+		<td class="col-md-4" th:text="${product.displaySize} "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.displayResolution}"></th>
+		<td class="col-md-4" th:text="${product.displayResolution} "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.operatingSystemName}"></th>
+		<td class="col-md-4" th:text="${product.operatingSystemName} "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.operatingSystemVersion}"></th>
+		<td class="col-md-4" th:text="${product.operatingSystemVersion} "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.colour}"></th>
+		<td class="col-md-4" th:text="${product.colour} "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.matrixType}"></th>
+		<td class="col-md-4" th:text="${product.matrixType} "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.processorName}"></th>
+		<td class="col-md-4" th:text="${product.processorName} "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.processorClockSpeed}"></th>
+		<td class="col-md-4" th:text="${product.processorClockSpeed}+' GHz' "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.graphicsCard}"></th>
+		<td class="col-md-4" th:text="${product.graphicsCard} "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.battery}"></th>
+		<td class="col-md-4" th:text="${product.battery} "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.ports}"></th>
+		<td class="col-md-4" th:text="${product.ports} "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.wirelessConnectivity}"></th>
+		<td class="col-md-4" th:text="${product.wirelessConnectivity} "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.camera}"></th>
+		<td class="col-md-4" th:text="${product.camera} "></td>
+	</tr>		
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.ram}"></th>
+		<td class="col-md-4" th:text="${product.ram}+' GB' "></td>
+	</tr>
+	<tr>
+		<th class="col-md-2" th:text="#{laptop.storage}"></th>
+		<td class="col-md-4" th:text="${product.storage}+' GB' "></td>
+	</tr>	
+</th:block>

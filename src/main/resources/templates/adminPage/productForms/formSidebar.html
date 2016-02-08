@@ -1,0 +1,69 @@
+<div class="col-md-2" id="leftCol" th:fragment="productFormFragment">
+	<div class="nav nav-stacked" id="sidebar">
+		<div class="panel-group">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" href="#product"
+							th:text="#{adminPage.header.products}"></a>
+					</h4>
+				</div>
+				<div id="product" class="panel-collapse in">
+					<a href="/adminPage/product/ssdDisk/add"><div class="panel-body"
+							th:text="#{adminPage.header.products.addSsdDisk}"></div>
+					</a>
+					<a href="/adminPage/product/hardDisk/add"><div class="panel-body"
+							th:text="#{adminPage.header.products.addHardDisk}"></div>
+					</a> 
+					<a href="/adminPage/product/laptop/add"><div class="panel-body"
+							th:text="#{adminPage.header.products.addLaptop}"></div>
+					</a> 										
+					<a
+						href="/adminPage/product/showAll"><div class="panel-body"
+							th:text="#{adminPage.header.products.showAll}"></div>
+					</a>
+					<a
+						href="/adminPage/product/ssdDisk/showAll"><div class="panel-body"
+							th:text="#{adminPage.header.products.showAllSsdDisks}"></div>
+					</a>
+					<a
+						href="/adminPage/product/hardDisk/showAll"><div class="panel-body"
+							th:text="#{adminPage.header.products.showAllHardDisks}"></div>
+					</a>		
+					<a
+						href="/adminPage/product/laptop/showAll"><div class="panel-body"
+							th:text="#{adminPage.header.products.showAllLaptops}"></div>
+					</a>															
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" href="#customer"
+							th:text="#{adminPage.header.customers}"></a>
+					</h4>
+				</div>
+				<div id="customer" class="panel-collapse in">
+					<a href="/adminPage/customer/add"><div class="panel-body"
+							th:text="#{adminPage.header.customers.add}"></div></a> <a
+						href="/adminPage/customer/showAll"><div class="panel-body"
+							th:text="#{adminPage.header.customers.showAll}"></div></a>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" href="#order"
+							th:text="#{adminPage.header.orders}"></a>
+					</h4>
+				</div>
+				<div id="order" class="panel-collapse in"> <a
+						href="/adminPage/order/showAll"><div class="panel-body"
+							th:text="#{adminPage.header.orders.showAll}"></div></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

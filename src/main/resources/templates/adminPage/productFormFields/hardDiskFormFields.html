@@ -1,0 +1,14 @@
+<div th:fragment="hardDiskFields">
+		<div class="form-group">
+		<label for="rotationSpeedInput" th:text="#{hardDisk.rotationSpeed}"></label> <input
+			type="text" class="form-control" id="rotationSpeedInput"
+			th:field="*{rotationSpeed}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{hardDisk.rotationSpeed}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('rotationSpeed')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+</div>

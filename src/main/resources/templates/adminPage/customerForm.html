@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example of Bootstrap 3 Horizontal Form Layout</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link rel="/css/myStyles.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+<style type="text/css">
+.bs-example {
+	margin: 20px;
+}
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label {
+	padding-top: 7px;
+}
+</style>
+</head>
+<body>
+
+	<div th:replace="adminPage/adminPageHeader :: adminPageTopMenu"></div>
+
+	<div class="container-fluid">
+		<!--row-->
+		<div class="row">
+			<!--left-->
+			<div
+				th:replace="adminPage/productForms/formSidebar :: productFormFragment"></div>
+			<!--/left-->
+
+			<!--right-->
+			<div class="col-md-9">
+				<div th:if="${successfulInsertion}"
+					 class="alert alert-success fade in">
+					<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+						th:text="#{success}"></strong>
+					<th:fragment th:text="#{adminPage.form.successfulInsertion}"></th:fragment>
+				</div>
+
+				<div th:if="${successfulEdition}"
+					 class="alert alert-success fade in">
+					<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+						th:text="#{success}"></strong>
+					<th:fragment th:text="#{adminPage.form.successfulEdition}"></th:fragment>
+				</div>
+
+				<form th:if="${operation}=='add'" action="#"
+					th:action="@{/adminPage/customer/add}" th:object="${customer}"
+					method="post" role="form">
+					<h3
+						th:text="${'__#{adminPage.header.customers.add}__' + ': ' + '__#{customer}__'}"></h3>
+
+					<div th:replace="adminPage/customerFormFields :: customerFields"></div>
+
+					<input type="hidden" id="idInput" th:field="*{id}" th:value="11" value="11"
+						th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{customer.phoneNumber}__')}" />
+
+
+
+					<button type="submit" class="btn btn-default"
+						th:text="#{adminPage.form.addButton}">!</button>
+				</form>
+
+				<form th:if="${operation}=='edit'" action="#"
+					th:action="@{/adminPage/customer/edit/__${customer.id}__}" th:object="${customer}"
+					method="post" role="form">
+					<h3
+						th:text="${'__#{adminPage.header.products.edit}__' + ': ' + '__#{customer}__'}"></h3>
+
+					<div th:replace="adminPage/customerFormFields :: customerFields"></div>
+
+					<button type="submit" class="btn btn-default"
+						th:text="#{adminPage.form.editButton}">!</button>
+				</form>
+			</div>
+			<!--/right-->
+		</div>
+		<!--/row-->
+	</div>
+</body>
+</html>

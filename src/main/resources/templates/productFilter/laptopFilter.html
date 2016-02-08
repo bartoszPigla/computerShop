@@ -1,0 +1,75 @@
+<div th:fragment="laptopFilterFragment">
+	<div class="checkbox">
+		<h4 class="glyphicon-minus" data-toggle="collapse"
+			data-target="#ramRange" th:text="' '+#{laptop.ram}"></h4>
+
+		<div class="container-fluid collapse in" id="ramRange">
+			<div role="form">
+				<div class="form-group">
+					<label for="fromRam" th:text="#{range.min}"></label> <input
+						type="text" class="form-control" id="fromRam" th:field="*{minRam}" />
+					<p th:if="${#fields.hasErrors('minRam')}" th:errors="*{minRam}"></p>
+				</div>
+				<p th:if="${#fields.hasErrors('minRam')}">has error</p>
+				<div class="form-group">
+					<label for="toRam" th:text="#{range.max}"></label> <input
+						type="text" class="form-control" id="toRam" th:field="*{maxRam}" />
+				</div>
+				<p th:if="${#fields.hasErrors('maxRam')}" th:errors="*{maxRam}" />
+			</div>
+		</div>
+	</div>
+
+	<div class="checkbox">
+		<h4 class="glyphicon-minus" data-toggle="collapse"
+			data-target="#storageRange" th:text="' '+#{laptop.storage}"></h4>
+
+		<div class="container-fluid collapse in" id="storageRange">
+			<div role="form">
+				<div class="form-group">
+					<label for="fromStorage" th:text="#{range.min}"></label> <input
+						type="text" class="form-control" id="fromStorage"
+						th:field="*{minStorage}" />
+					<p th:if="${#fields.hasErrors('minStorage')}"
+						th:errors="*{minStorage}"></p>
+				</div>
+				<p th:if="${#fields.hasErrors('minStorage')}">has error</p>
+				<div class="form-group">
+					<label for="toStorage" th:text="#{range.max}"></label> <input
+						type="text" class="form-control" id="toStorage"
+						th:field="*{maxStorage}" />
+				</div>
+				<p th:if="${#fields.hasErrors('maxStorage')}"
+					th:errors="*{maxStorage}" />
+			</div>
+		</div>
+	</div>
+
+	<div class="checkbox">
+		<h4 class="glyphicon-minus" data-toggle="collapse"
+			data-target="#displayResolutions"
+			th:text="' '+#{laptop.displayResolution}"></h4>
+
+		<div class="container-fluid collapse in" id="displayResolutions">
+			<div class="checkbox"
+				th:each="displayResolution : ${filter.displayResolutionList}">
+				<label><input type="checkbox" th:text="${displayResolution}"
+					th:field="*{displayResolutionList}" th:value="${displayResolution}" /></label>
+			</div>
+		</div>
+	</div>
+
+	<div class="checkbox">
+		<h4 class="glyphicon-minus" data-toggle="collapse"
+			data-target="#laptop.processorNames"
+			th:text="' '+#{laptop.processorName}"></h4>
+
+		<div class="container-fluid collapse in" id="laptop.processorNames">
+			<div class="checkbox"
+				th:each="processorName : ${filter.processorNameList}">
+				<label><input type="checkbox" th:text="${processorName}"
+					th:field="*{processorNameList}" th:value="${processorName}" /></label>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<th:block th:fragment="diskRows">			      
+			      <tr>
+			        <th class="col-md-2" th:text="#{disk.capacity}"></th>
+			        <td class="col-md-4" th:text="${product.capacity}+' GB'"></td>
+			      </tr>
+			      <tr>
+			        <th class="col-md-2" th:text="#{disk.weight}"></th>
+			        <td class="col-md-4" th:text="${product.weight}+' g'"></td>
+			      </tr>
+			      <tr>
+			        <th class="col-md-2" th:text="#{disk.interface}"></th>
+			        <td class="col-md-4" th:text="${product.diskInterface}"></td>
+			      </tr>
+			      <tr>
+			        <th class="col-md-2" th:text="#{disk.size}"></th>
+			        <td class="col-md-4" th:text="${product.diskSize}"></td>
+			      </tr>
+</th:block>			      

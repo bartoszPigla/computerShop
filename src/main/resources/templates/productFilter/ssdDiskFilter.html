@@ -1,0 +1,49 @@
+<div th:fragment="ssdDiskFilterFragment">
+
+	<!-- default not collapse:<div class="container-fluid collapse in" id="readSpeedRange"> !-->
+	<div class="checkbox">
+		<h4 class="glyphicon-minus" data-toggle="collapse"
+			data-target="#readSpeedRange" th:text="' '+#{ssdDisk.readSpeed}"></h4>
+
+		<div class="container-fluid collapse in" id="readSpeedRange">
+			<div role="form">
+				<div class="form-group">
+					<label for="fromReadSpeed" th:text="#{range.min}"></label> <input
+						type="text" class="form-control" id="fromReadSpeed"
+						th:field="*{minReadSpeed}" />
+					<p th:if="${#fields.hasErrors('minReadSpeed')}" th:errors="*{minReadSpeed}" />	
+				</div>
+				<div class="form-group">
+					<label for="toReadSpeed" th:text="#{range.max}"></label> <input
+						type="text" class="form-control" id="toReadSpeed"
+						th:field="*{maxReadSpeed}" />
+					<p th:if="${#fields.hasErrors('maxReadSpeed')}" th:errors="*{maxReadSpeed}" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="checkbox">
+		<h4 class="glyphicon-minus" data-toggle="collapse"
+			data-target="#writeSpeedRange" th:text="' '+#{ssdDisk.writeSpeed}"></h4>
+
+		<div class="container-fluid collapse in" id="writeSpeedRange">
+			<div role="form">
+				<div class="form-group">
+					<label for="fromWriteSpeed" th:text="#{range.min}"></label> <input
+						type="text" class="form-control" id="fromWriteSpeed"
+						th:field="*{minWriteSpeed}" />
+					<p th:if="${#fields.hasErrors('minWriteSpeed')}" th:errors="*{minWriteSpeed}" />
+						
+				</div>
+				<div class="form-group">
+					<label for="toWriteSpeed" th:text="#{range.max}"></label> <input
+						type="text" class="form-control" id="toWriteSpeed"
+						th:field="*{maxWriteSpeed}" />
+					<p th:if="${#fields.hasErrors('maxWriteSpeed')}" th:errors="*{maxWriteSpeed}" />
+						
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

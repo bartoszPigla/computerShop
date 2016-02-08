@@ -1,0 +1,10 @@
+<th:block th:fragment="ssdDiskRows">			      
+			      <tr>
+			        <th class="col-md-2" th:text="#{ssdDisk.readSpeed}"></th>
+			        <td class="col-md-4" th:text="${product.readSpeed}+' MB/s'"></td>
+			      </tr>
+			      <tr>
+			        <th class="col-md-2" th:text="#{ssdDisk.writeSpeed}"></th>
+			        <td class="col-md-4" th:text="${product.writeSpeed}+' MB/s'"></td>
+			      </tr>	
+</th:block>			      

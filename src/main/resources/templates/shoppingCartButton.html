@@ -1,0 +1,19 @@
+<div th:fragment="shoppingCartButton">
+	<p th:if="${@shoppingCart.contains(__${product.id}__)}">
+		<!-- if customer is not anonymous(logged in)-->
+		<a th:href="@{'/shoppingCart/delete/'+'__${product.id}__'}"
+			class="btn btn-info btn-sm"> <span
+			class="glyphicon glyphicon-shopping-cart"></span> <span
+			th:text="#{shoppingCart.remove}"></span>
+		</a>
+	</p>
+
+	<p th:unless="${@shoppingCart.contains(__${product.id}__)}" >
+		<!-- if customer is anonymous-->
+		<a th:href="@{'/shoppingCart/add/'+'__${product.id}__'}"
+			class="btn btn-info btn-sm" > <span
+			class="glyphicon glyphicon-shopping-cart" ></span> <span
+			th:text="#{shoppingCart.add}"></span>
+		</a>
+	</p>
+</div>

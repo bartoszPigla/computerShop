@@ -1,0 +1,52 @@
+<div th:fragment="diskFilterFragment">
+	<div class="checkbox">
+		<h4 class="glyphicon-minus" data-toggle="collapse"
+			data-target="#interfaces" th:text="' '+#{disk.interface}"></h4>
+
+		<div class="container-fluid collapse in" id="interfaces">
+			<div class="checkbox"
+				th:each="interfaceName : ${filter.diskInterfaceList}">
+				<label><input type="checkbox" th:text="${interfaceName}"
+					th:field="*{diskInterfaceList}" th:value="${interfaceName}" /></label>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="checkbox">
+		<h4 class="glyphicon-minus" data-toggle="collapse"
+			data-target="#diskSizes" th:text="' '+#{disk.size}"></h4>
+
+		<div class="container-fluid collapse in" id="diskSizes">
+			<div class="checkbox"
+				th:each="diskSize,status : ${filter.diskSizeList}">
+				<label><input type="checkbox" th:text="${diskSize}" value=""
+					th:field="*{diskSizeList}" th:value="${diskSize}" /></label>
+			</div>
+		</div>
+	</div>
+
+	<div class="checkbox">
+		<h4 class="glyphicon-minus" data-toggle="collapse"
+			data-target="#capacityRange" th:text="' '+#{disk.capacity}"></h4>
+
+		<div class="container-fluid collapse in" id="capacityRange">
+			<div role="form">
+				<div class="form-group">
+					<label for="fromCapacity" th:text="#{range.min}"></label> <input
+						type="text" class="form-control" id="fromCapacity"
+						th:field="*{minCapacity}" />
+					<p th:if="${#fields.hasErrors('minCapacity')}"
+						th:errors="*{minCapacity}" />
+				</div>
+				<div class="form-group">
+					<label for="toCapacity" th:text="#{range.max}"></label> <input
+						type="text" class="form-control" id="toCapacity"
+						th:field="*{maxCapacity}" />
+					<p th:if="${#fields.hasErrors('maxCapacity')}"
+						th:errors="*{maxCapacity}" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,203 @@
+<div th:fragment="laptopFields">
+	<div class="form-group">
+		<label for="displaySizeInput" th:text="#{laptop.displaySize}"></label>
+		<input type="text" class="form-control" id="displaySizeInput"
+			th:field="*{displaySize}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.displaySize}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('displaySize')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="displayResolutionInput"
+			th:text="#{laptop.displayResolution}"></label> <input type="text"
+			class="form-control" id="displayResolutionInput"
+			th:field="*{displayResolution}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.displayResolution}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('displayResolution')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="operatingSystemNameInput"
+			th:text="#{laptop.operatingSystemName}"></label> <input type="text"
+			class="form-control" id="operatingSystemNameInput"
+			th:field="*{operatingSystemName}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.operatingSystemName}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('operatingSystemName')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="operatingSystemVersionInput"
+			th:text="#{laptop.operatingSystemVersion}"></label> <input
+			type="text" class="form-control" id="operatingSystemVersionInput"
+			th:field="*{operatingSystemVersion}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.operatingSystemVersion}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('operatingSystemVersion')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="colourInput" th:text="#{laptop.colour}"></label> <input
+			type="text" class="form-control" id="colourInput"
+			th:field="*{colour}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.colour}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('colour')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="matrixTypeInput" th:text="#{laptop.matrixType}"></label> <input
+			type="text" class="form-control" id="matrixTypeInput"
+			th:field="*{matrixType}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.matrixType}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('matrixType')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="processorNameInput" th:text="#{laptop.processorName}"></label>
+		<input type="text" class="form-control" id="processorNameInput"
+			th:field="*{processorName}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.processorName}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('processorName')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="processorClockSpeedInput"
+			th:text="#{laptop.processorClockSpeed}"></label> <input type="text"
+			class="form-control" id="processorClockSpeedInput"
+			th:field="*{processorClockSpeed}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.processorClockSpeed}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('processorClockSpeed')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="graphicsCardInput" th:text="#{laptop.graphicsCard}"></label>
+		<input type="text" class="form-control" id="graphicsCardInput"
+			th:field="*{graphicsCard}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.graphicsCard}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('graphicsCard')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="batteryInput" th:text="#{laptop.battery}"></label> <input
+			type="text" class="form-control" id="batteryInput"
+			th:field="*{battery}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.battery}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('battery')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="portsInput" th:text="#{laptop.ports}"></label> <input
+			type="text" class="form-control" id="portsInput" th:field="*{ports}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.ports}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('ports')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="wirelessConnectivityInput"
+			th:text="#{laptop.wirelessConnectivity}"></label> <input type="text"
+			class="form-control" id="wirelessConnectivityInput"
+			th:field="*{wirelessConnectivity}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.wirelessConnectivity}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('wirelessConnectivity')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cameraInput" th:text="#{laptop.camera}"></label> <input
+			type="text" class="form-control" id="cameraInput"
+			th:field="*{camera}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.camera}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('camera')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	
+		<div class="form-group">
+		<label for="ramInput" th:text="#{laptop.ram}"></label> <input
+			type="text" class="form-control" id="ramInput"
+			th:field="*{ram}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.ram}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('ram')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	
+		<div class="form-group">
+		<label for="storageInput" th:text="#{laptop.storage}"></label> <input
+			type="text" class="form-control" id="storageInput"
+			th:field="*{storage}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{laptop.storage}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('storage')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+</div>

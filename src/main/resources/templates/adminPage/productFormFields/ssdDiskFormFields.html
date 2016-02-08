@@ -1,0 +1,27 @@
+<div th:fragment="ssdDiskFields">
+
+		<div class="form-group">
+		<label for="readSpeedInput" th:text="#{ssdDisk.readSpeed}"></label> <input
+			type="text" class="form-control" id="readSpeedInput"
+			th:field="*{readSpeed}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{ssdDisk.readSpeed}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('readSpeed')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="writeSpeedInput" th:text="#{ssdDisk.writeSpeed}"></label> <input
+			type="text" class="form-control" id="writeSpeedInput"
+			th:field="*{writeSpeed}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{ssdDisk.writeSpeed}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('writeSpeed')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+</div>

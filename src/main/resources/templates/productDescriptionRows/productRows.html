@@ -1,0 +1,19 @@
+<meta charset="UTF-8" />
+<th:block th:fragment="productRows">			      
+			      <tr>
+			        <th class="col-md-2" th:text="#{product.producer}"></th>
+			        <td class="col-md-4" th:text="${product.producer}"></td>
+			      </tr>
+			      <tr>
+			        <th class="col-md-2" th:text="#{product.model}"></th>
+			        <td class="col-md-4" th:text="${product.model}"></td>
+			      </tr>
+			      <tr>
+			        <th class="col-md-2" th:text="#{product.price}"></th>
+			        <td class="col-md-4" th:text="${product.price}+' zł'"></td>
+			      </tr>
+			      <tr>
+			        <th class="col-md-2" th:text="#{product.dimensions}"></th>
+			        <td class="col-md-4" th:text="${product.dimensions}"></td>
+			      </tr>
+</th:block>			      

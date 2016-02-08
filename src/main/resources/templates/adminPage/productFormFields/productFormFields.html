@@ -1,0 +1,76 @@
+<div th:fragment="productFields">
+
+	<div class="form-group">
+		<label for="producerInput" th:text="#{product.producer}"></label> <input
+			type="text" class="form-control" id="producerInput"
+			th:field="*{producer}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{product.producer}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('producer')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="modelInput" th:text="#{product.model}"></label> <input
+			type="text" class="form-control" id="modelInput" th:field="*{model}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{product.model}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('model')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="dimensionInput" th:text="#{product.dimensions}"></label> <input
+			type="text" class="form-control" id="dimensionInput"
+			th:field="*{dimensions}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{product.dimensions}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('dimensions')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="descriptionInput" th:text="#{product.description}"></label> <input
+			type="text" class="form-control" id="descriptionInput"
+			th:field="*{description}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{product.description}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('description')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="priceInput" th:text="#{product.price}"></label> <input
+			type="text" class="form-control" id="priceInput" th:field="*{price}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{product.price}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('price')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="imageDirectoryInput" th:text="#{product.imageDirectory}"></label>
+		<input type="text" class="form-control" id="imageDirectoryInput"
+			th:field="*{imageDirectory}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{product.imageDirectory}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('imageDirectory')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+</div>

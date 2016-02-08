@@ -1,0 +1,53 @@
+<div th:fragment="diskFields">
+	<div class="form-group">
+		<label for="capacityInput" th:text="#{disk.capacity}"></label> <input
+			type="text" class="form-control" id="capacityInput"
+			th:field="*{capacity}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{disk.capacity}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('capacity')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="weightInput" th:text="#{disk.weight}"></label> <input
+			type="text" class="form-control" id="weightInput"
+			th:field="*{weight}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{disk.weight}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('weight')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="sizeInput" th:text="#{disk.size}"></label> <input
+			type="text" class="form-control" id="sizeInput"
+			th:field="*{diskSize}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{disk.size}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('diskSize')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="interfaceInput" th:text="#{disk.interface}"></label> <input
+			type="text" class="form-control" id="interfaceInput"
+			th:field="*{diskInterface}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{disk.interface}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('diskInterface')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+</div>

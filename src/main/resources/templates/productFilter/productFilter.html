@@ -1,0 +1,37 @@
+<div th:fragment="productFilterFragment">
+<div class="checkbox">
+	<h4 class="glyphicon-minus" data-toggle="collapse"
+		data-target="#producers" th:text="' '+#{product.producer}"></h4>
+
+	<div class="container-fluid collapse in" id="producers">
+		<div class="checkbox"
+			th:each="producerName : ${filter.producerList}">
+			<label><input type="checkbox" th:text="${producerName}"
+				th:field="*{producerList}" th:value="${producerName}" /></label>
+		</div>
+	</div>
+</div>
+
+<div class="checkbox">
+	<h4 class="glyphicon-minus" data-toggle="collapse"
+		data-target="#priceRange" th:text="' '+#{product.price}"></h4>
+
+	<div class="container-fluid collapse in" id="priceRange">
+		<div role="form">
+			<div class="form-group">
+				<label for="fromPrice" th:text="#{range.min}"></label> <input
+					type="text" class="form-control" id="fromPrice"
+					th:field="*{minPrice}" />
+				<p th:if="${#fields.hasErrors('minPrice')}" th:errors="*{minPrice}"></p>
+			</div>
+			<p th:if="${#fields.hasErrors('minPrice')}"></p>
+			<div class="form-group">
+				<label for="toPrice" th:text="#{range.max}"></label> <input
+					type="text" class="form-control" id="toPrice"
+					th:field="*{maxPrice}" />
+			</div>
+			<p th:if="${#fields.hasErrors('maxPrice')}" th:errors="*{maxPrice}" />
+		</div>
+	</div>
+</div>
+</div>

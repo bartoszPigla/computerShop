@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example of Bootstrap 3 Horizontal Form Layout</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link rel="/css/myStyles.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+<style type="text/css">
+.bs-example {
+	margin: 20px;
+}
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label {
+	padding-top: 7px;
+}
+</style>
+</head>
+<body>
+
+	<div th:replace="adminPage/adminPageHeader :: adminPageTopMenu"></div>
+
+	<div class="container-fluid">
+		<!--row-->
+		<div class="row">
+			<!--left-->
+			<div
+				th:replace="adminPage/productForms/formSidebar :: productFormFragment"></div>
+			<!--/left-->
+
+			<!--right-->
+			<div class="col-md-10">
+				<h3 th:text="#{adminPage.header.orders}"></h3>
+					
+				<p th:text="${pageIndexList}"></p>
+
+
+				<table class="table table-hover table-condensed">
+					<thead>
+						<tr>
+							<th th:text="#{order.id}"></th>
+							<th th:text="#{order.orderDate}"></th>
+							<th th:text="#{order.customer}"></th>
+							<th th:text="#{order.productForCustomer}"></th>
+							<th th:text="#{order.productForOrder}"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="order,status : ${orderList}">
+
+							<td th:text="${order.id}"></td>
+							<!-- <td th:text="${order.orderDate}"></td> -->
+							<td th:text="${#dates.format(order.orderDate, 'dd-MM-yyyy hh:mm:ss')}"></td>
+							<td th:text="${order.purchasingCustomer.firstName+' '+order.purchasingCustomer.lastName}"></td>
+
+							<td>
+								<form action="#" th:action="@{/adminPage/product/showAll/forCustomer/__${order.purchasingCustomer.id}__}"
+									th:method="get">
+									<button class="btn btn-default" type="submit"
+										th:text="#{adminPage.form.getProductsForCustomerButton}"></button>
+								</form>
+							</td>
+							
+							<td>
+								<form action="#" th:action="@{/adminPage/product/showAll/forOrder/__${order.id}__}"
+									th:method="get">
+									<button class="btn btn-default" type="submit"
+										th:text="#{adminPage.form.getProductsForOrderButton}"></button>
+								</form>
+							</td>							
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="container-fluid">
+					<!-- Grupowanie "marki" i przycisku rozwijania mobilnego menu 
+					<div class="navbar-header">
+						<p>nav header</p>
+					</div>
+					-->
+					<!-- Grupowanie elementów menu w celu lepszego wyświetlania na urządzeniach moblinych -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<!--<div class="nav navbar-nav">
+							<p>sdsd</p>
+						</div>
+						-->
+						<div class="nav navbar-nav"></div>
+
+						<div class="navbar-form navbar-left">
+						<!--  
+							<form action="#" th:action="@{__${#httpServletRequest.requestURI}__}"
+									th:method="post">
+								<button class="btn btn-default" type="submit"
+									th:text="#{adminPage.form.goBackButton}"></button>
+							</form>
+						-->
+						</div>
+						<div class="nav navbar-nav navbar-right">
+							<ul class="pagination pagination-lg">
+								<li th:each="i: ${#numbers.sequence(1,'__${numberOfPages}__')}"><a
+									th:href="${'?pageNumber='+'__${i}__'}" th:text="${i}"></a></li>
+								<!--  <p th:if="${param.pageNumber=='__${i}__'}"></p> -->
+							</ul>
+
+						</div>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+			</div>
+
+			<!--/right-->
+		</div>
+		<!--/row-->
+
+	</div>
+</body>
+</html>

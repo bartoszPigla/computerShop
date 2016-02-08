@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example of Bootstrap 3 Horizontal Form Layout</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link rel="/css/myStyles.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+<style type="text/css">
+.bs-example {
+	margin: 20px;
+}
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label {
+	padding-top: 7px;
+}
+</style>
+</head>
+<body>
+
+	<div th:replace="globalFragments/header :: topMenu"></div>
+
+	<div class="container-fluid">
+		<!--row-->
+		<div class="row">
+			<!--left-->
+			<div th:replace="adminPage/productForms/formSidebar :: productFormFragment"></div>
+			<!--/left-->
+
+			<!--right-->
+			<div class="col-md-10">
+				<p th:text="${pageIndexList}"></p>
+
+				<table class="table table-hover table-condensed">
+					<thead>
+						<tr>
+							<th th:text="#{product.producer}"></th>
+							<th th:text="#{product.model}"></th>
+							<th th:text="#{product.price}"></th>
+
+							<th th:text="#{adminPage.form.deleteButton}"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr
+							th:each="product,status : ${@shoppingCart.getProductList()}">
+
+							<td th:text="${product.producer}"></td>
+							<td th:text="${product.model}"></td>
+							<td th:text="${product.price}"></td>
+
+							<td>
+								<form action="#"
+									th:action="@{/shoppingCart/delete/__${product.id}__}"
+									th:object="${indexToDelete}" th:method="get">
+									<button class="btn btn-default" type="submit"
+										th:text="#{adminPage.form.deleteButton}"></button>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="container-fluid">
+					<!-- Grupowanie "marki" i przycisku rozwijania mobilnego menu 
+					<div class="navbar-header">
+						<p>nav header</p>
+					</div>
+					-->
+					<!-- Grupowanie elementów menu w celu lepszego wyświetlania na urządzeniach moblinych -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<!--<div class="nav navbar-nav">
+							<p>sdsd</p>
+						</div>
+						-->
+						<div class="nav navbar-nav"></div>
+
+						<div class="navbar-form navbar-left"></div>
+						<div class="nav navbar-nav navbar-right">
+							<ul class="pagination pagination-lg">
+									<a onClick="history.go(-1)" class="btn btn-default">
+										<span class="glyphicon glyphicon-shopping-cart"></span>
+										Continue Shopping
+									</a>
+								
+									<a th:href="@{/shoppingCart/continueShopping}" class="btn btn-success">
+										Checkout <span class="glyphicon glyphicon-play"></span>
+									</a>
+							</ul>
+
+
+						</div>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+			</div>
+
+			<!--/right-->
+		</div>
+		<!--/row-->
+
+	</div>
+</body>
+</html>

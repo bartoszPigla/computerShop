@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example of Bootstrap 3 Horizontal Form Layout</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link rel="/css/myStyles.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+<style type="text/css">
+.bs-example {
+	margin: 20px;
+}
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label {
+	padding-top: 7px;
+}
+</style>
+</head>
+<body>
+
+	<div th:replace="adminPage/adminPageHeader :: adminPageTopMenu"></div>
+
+	<div class="container-fluid">
+		<!--row-->
+		<div class="row">
+			<!--left-->
+			<div
+				th:replace="adminPage/productForms/formSidebar :: productFormFragment"></div>
+			<!--/left-->
+
+			<!--right-->
+			<div class="col-md-10">
+				<h1 th:text="#{adminPage.header.products}"></h1>
+				<a class="btn btn-link" href="/adminPage/product/ssdDisk/add" th:text="#{adminPage.header.products.addSsdDisk}"></a>
+				<a class="btn btn-link"  href="/adminPage/product/hardDisk/add" th:text="#{adminPage.header.products.addHardDisk}"></a>
+				<a class="btn btn-link" href="/adminPage/product/laptop/add" th:text="#{adminPage.header.products.addLaptop}"></a>
+				<a class="btn btn-link" href="/adminPage/product/showAll" th:text="#{adminPage.header.products.showAll}"></a>
+				<a class="btn btn-link" href="/adminPage/product/ssdDisk/showAll" th:text="#{adminPage.header.products.showAllSsdDisks}"></a>
+				<a class="btn btn-link" href="/adminPage/product/hardDisk/showAll" th:text="#{adminPage.header.products.showAllHardDisks}"></a>
+				<a class="btn btn-link" href="/adminPage/product/laptop/showAll" th:text="#{adminPage.header.products.showAllLaptops}"></a>
+				
+				<h1 th:text="#{adminPage.header.customers}"></h1>
+				<a class="btn btn-link" href="/adminPage/customer/add" th:text="#{adminPage.header.customers.add}"></a>
+				<a class="btn btn-link" href="/adminPage/customer/showAll" th:text="#{adminPage.header.customers.showAll}"></a>
+				
+				<h1 th:text="#{adminPage.header.orders}"></h1>
+				<a class="btn btn-link" href="/adminPage/order/showAll" th:text="#{adminPage.header.orders.showAll}"></a>
+			</div>
+
+			<!--/right-->
+		</div>
+		<!--/row-->
+
+	</div>
+</body>
+</html>

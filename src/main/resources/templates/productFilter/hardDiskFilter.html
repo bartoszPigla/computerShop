@@ -1,0 +1,14 @@
+<div th:fragment="hardDiskFilterFragment">
+	<div class="checkbox">
+		<h4 class="glyphicon-minus" data-toggle="collapse"
+			data-target="#rotationSpeeds" th:text="' '+#{hardDisk.rotationSpeed}"></h4>
+
+		<div class="container-fluid collapse in" id="rotationSpeeds">
+			<div class="checkbox"
+				th:each="rotationSpeed : ${filter.rotationSpeedList}">
+				<label><input type="checkbox" th:text="${rotationSpeed}"
+					th:field="*{rotationSpeedList}" th:value="${rotationSpeed}" /></label>
+			</div>
+		</div>
+	</div>
+</div>

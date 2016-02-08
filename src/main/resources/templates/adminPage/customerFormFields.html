@@ -1,0 +1,99 @@
+<div th:fragment="customerFields">
+
+	<div class="form-group">
+		<label for="firstNameInput" th:text="#{customer.firstName}"></label> <input
+			type="text" class="form-control" id="firstNameInput"
+			th:field="*{firstName}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{customer.firstName}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('firstName')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="lastNameInput" th:text="#{customer.lastName}"></label> <input
+			type="text" class="form-control" id="lastNameInput"
+			th:field="*{lastName}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{customer.lastName}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('lastName')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="passwordInput" th:text="#{customer.password}"></label> <input
+			type="password" class="form-control" id="passwordInput"
+			th:field="*{password}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{customer.password}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('password')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="eMailInput" th:text="#{customer.eMail}"></label> <input
+			type="email" class="form-control" id="eMailInput" th:field="*{eMail}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{customer.eMail}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('eMail')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="streetNameInput" th:text="#{customer.streetName}"></label>
+		<input type="text" class="form-control" id="streetNameInput"
+			th:field="*{streetName}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{customer.streetName}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('streetName')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="streetNumberInput" th:text="#{customer.streetNumber}"></label>
+		<input type="text" class="form-control" id="streetNumberInput"
+			th:field="*{streetNumber}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{customer.streetNumber}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('streetNumber')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="houseNumberInput" th:text="#{customer.houseNumber}"></label>
+		<input type="text" class="form-control" id="houseNumberInput"
+			th:field="*{houseNumber}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__' + #strings.toLowerCase('__#{customer.houseNumber}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('houseNumber')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="phoneNumberInput" th:text="#{customer.phoneNumber}"></label>
+		<input type="text" class="form-control" id="phoneNumberInput"
+			th:field="*{phoneNumber}"
+			th:placeholder="${'__#{adminPage.form.placeholder}__'+ #strings.toLowerCase('__#{customer.phoneNumber}__')}" />
+		<div class="alert alert-danger fade in"
+			th:each="err : ${#fields.errors('phoneNumber')}">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+				th:text="#{error}"></strong>
+			<th:fragment th:text="${err}"></th:fragment>
+		</div>
+	</div>
+</div>
