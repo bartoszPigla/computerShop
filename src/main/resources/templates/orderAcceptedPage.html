@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Insert title here</title>
+    <div th:replace="globalFragments/head :: head"></div>
+</head>
+<body>
+<div th:replace="globalFragments/header :: topMenu"></div>
+<!--container-->
+<div class="container-fluid">
+    <!--row-->
+    <div class="row">
+        <!--left-->
+        <div class="col-md-2" id="leftCol">
+            <div class="nav nav-stacked" id="sidebar">
+                <div th:replace="productNavigation :: productNavigation"></div>
+            </div>
+        </div>
+        <!--/left-->
+
+        <!--right-->
+        <div class="col-md-9" th:fragment="productListFragment">
+            <div class="alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert">&times;</a> <strong
+                    th:text="#{success}"></strong>
+                <th:fragment th:text="#{shoppingCart.orderSuccessful}"></th:fragment>
+            </div>
+        </div>
+        <!--/right-->
+    </div>
+    <!--/row-->
+</div>
+<!--/container-->
+<!--
+-->
+
+<script src="/js/filterToggle.js"></script>
+</body>
+</html>

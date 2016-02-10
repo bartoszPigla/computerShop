@@ -40,7 +40,8 @@ public class ExampleEntityGenerator {
 		customer.setStreetName("Wojskowa");
 		customer.setStreetNumber(24);
 		customer.setHouseNumber(54);
-		customer.setPassword("not secret password");
+		customer.setPassword("1234");
+		customer.setRoles(Arrays.asList("ROLE_ADMIN","ADMIN","USER"));
 		return customer;
 	}
 
@@ -86,7 +87,7 @@ public class ExampleEntityGenerator {
 		disk.setWeight(80);
 		disk.setDiskSize("2.5'");
 		disk.setPrice(300);
-		disk.setImageDirectory("ssdDisk.jpg");
+		disk.setImageDirectory("/jpg/ssdDisk.jpg");
 		disk.setDescription("bardzo dobry dysk");
 		return disk;
 	}

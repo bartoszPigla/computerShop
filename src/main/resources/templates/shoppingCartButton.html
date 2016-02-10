@@ -1,3 +1,6 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
 <div th:fragment="shoppingCartButton">
 	<p th:if="${@shoppingCart.contains(__${product.id}__)}">
 		<!-- if customer is not anonymous(logged in)-->
@@ -17,3 +20,4 @@
 		</a>
 	</p>
 </div>
+</html>

@@ -3,13 +3,10 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Fetch;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -41,6 +38,9 @@ public class Customer {
 	@NotNull
 	@PhoneNumber
 	private String phoneNumber;
+
+	@ElementCollection(fetch=FetchType.EAGER)
+	private List<String> roles;
 	
 	@OneToMany(mappedBy="purchasingCustomer")
 	private List<ProductOrder> orders=new ArrayList<ProductOrder>();
@@ -131,6 +131,14 @@ public class Customer {
 	
 	public void deleteOrder(ProductOrder order){
 		orders.remove(order);
+	}
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
 	}
 
 	@Override

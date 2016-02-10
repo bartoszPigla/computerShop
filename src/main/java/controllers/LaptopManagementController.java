@@ -26,14 +26,14 @@ public class LaptopManagementController {
 	LaptopRepository laptopService;
 	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String addlaptop(Model model) {
+	public String addLaptop(Model model) {
 		model.addAttribute("laptop", new Laptop());
 		model.addAttribute("operation", "add");
 		return "adminPage/productForms/laptop";
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String savelaptop(@Valid Laptop laptop, BindingResult result, Model model) {
+	public String saveLaptop(@Valid Laptop laptop, BindingResult result, Model model) {
 		model.addAttribute("operation", "add");
 		if (result.hasErrors()) {
 			model.addAttribute("successfulInsertion", false);
@@ -48,7 +48,7 @@ public class LaptopManagementController {
 	}
 	
 	@RequestMapping(value = "/edit/{productId}", method = RequestMethod.POST)
-	public String editlaptop(@Valid Laptop laptop, BindingResult result, @PathVariable Long productId, Model model) {
+	public String editLaptop(@Valid Laptop laptop, BindingResult result, @PathVariable Long productId, Model model) {
 		model.addAttribute("operation", "edit");
 		if (result.hasErrors()) {
 			model.addAttribute("successfulEdition", false);
@@ -63,7 +63,7 @@ public class LaptopManagementController {
 	}
 
 	@RequestMapping(value = "/showAll", method = RequestMethod.GET)
-	public String editlaptop(@RequestParam(value = "pageNumber", required = false) Integer pageNumber, Model model) {
+	public String editLaptop(@RequestParam(value = "pageNumber", required = false) Integer pageNumber, Model model) {
 		List<Laptop>list=laptopService.findAll(new PageRequest((pageNumber==null)?0:pageNumber-1, pageSize)).getContent();
 		model.addAttribute("laptopList", list);
 		model.addAttribute("numberOfPages", laptopService.count()/pageSize+1);

@@ -35,6 +35,8 @@ public interface ProductRepository extends ProductBaseRepository<Product> {
 	public Long countOfProductsFromOrder(@Param("productOrder")ProductOrder productOrder);
 
 
+	@Query("SELECT product FROM Product product JOIN FETCH product.orders  WHERE product.id = :productId")
+	Product findByIdAndFetchOrdersEagerly(@Param("productId") Long productId);
 	
 	/*
 	 * 	@Query("SELECT DISTINCT d.diskInterface FROM SsdDisk AS d") 

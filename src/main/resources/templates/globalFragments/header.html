@@ -1,66 +1,139 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+
 <a href="?lang=en">English </a>
 |
 <a href="?lang=pl">Polish </a>
 <nav class="navbar navbar-default" role="navigation"
-	th:fragment="topMenu">
-	<div class="container-fluid">
-		<!-- Grupowanie "marki" i przycisku rozwijania mobilnego menu -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Rozwiñ nawigacjê</span> <span class="icon-bar"></span>
-				<span class="icon-bar"></span> <span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">MyShop</a>
-		</div>
+     th:fragment="topMenu">
+    <div class="container-fluid">
+        <!-- Grupowanie "marki" i przycisku rozwijania mobilnego menu -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Rozwiï¿½ nawigacjï¿½</span> <span class="icon-bar"></span>
+                <span class="icon-bar"></span> <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">MyShop</a>
+        </div>
 
-		<!-- Grupowanie elementów menu w celu lepszego wyœwietlania na urz¹dzeniach moblinych -->
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li><a href="/laptop"> <span
-						th:text="#{header.category.laptops}" th:remove="tag"></span>
-				</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"> <span th:text="#{disk}" th:remove="tag"></span>
-						<span class="caret"></span></a>
-					<ul class="dropdown-menu" role="menu">
-						<li><a href="/components/disk/ssdDisk"><span
-								th:text="#{hardDisk}" th:remove="tag"></span></a></li>
-						<li><a href="/components/disk/hardDisk"><span
-								th:text="#{ssdDisk}"></span></a></li>
-						<!-- <li class="divider"></li> -->
-					</ul></li>
-			</ul>
+        <!-- Grupowanie elementï¿½w menu w celu lepszego wyï¿½wietlania na urzï¿½dzeniach moblinych -->
+        <div class="collapse navbar-collapse"
+             id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/laptop"> <span
+                        th:text="#{header.category.laptops}" th:remove="tag"></span>
+                </a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown"> <span th:text="#{disk}" th:remove="tag"></span>
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/components/disk/ssdDisk"><span
+                                th:text="#{ssdDisk}" th:remove="tag"></span></a></li>
+                        <li><a href="/components/disk/hardDisk"><span
+                                th:text="#{hardDisk}"></span></a></li>
+                        <!-- <li class="divider"></li> -->
+                    </ul>
+                </li>
 
-			<form class="navbar-form navbar-left" role="search">
-				<div class="form-group">
-					<input type="text" class="form-control"
-						th:placeholder="#{header.searchButton}" />
-				</div>
-				<button type="submit" class="btn btn-default">
-					<span th:text="#{header.searchButton}"></span>
-				</button>
-			</form>
-			<form class="navbar-form navbar-right" th:method="get" th:action="@{/shoppingCart/showAll}">
-				<button type="submit" class="btn btn-default" > 
+
+
+                <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown"> <span
+                        th:text="#{adminPage.header.products}" th:remove="tag"></span> <span
+                        class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/adminPage/product/showAll"><span
+                                th:text="#{adminPage.header.products.showAll}" th:remove="tag"></span></a></li>
+
+                        <li class="divider"></li>
+
+                        <li><a href="/adminPage/product/ssdDisk/showAll"><span
+                                th:text="#{adminPage.header.products.showAllSsdDisks}" th:remove="tag"></span></a></li>
+                        <li><a href="/adminPage/product/hardDisk/showAll"><span
+                                th:text="#{adminPage.header.products.showAllHardDisks}" th:remove="tag"></span></a></li>
+                        <li><a href="/adminPage/product/laptop/showAll"><span
+                                th:text="#{adminPage.header.products.showAllLaptops}" th:remove="tag"></span></a></li>
+
+                        <li class="divider"></li>
+
+                        <li><a href="/adminPage/product/ssdDisk/add"><span
+                                th:text="#{adminPage.header.products.addSsdDisk}" th:remove="tag"></span></a></li>
+                        <li><a href="/adminPage/product/hardDisk/add"><span
+                                th:text="#{adminPage.header.products.addHardDisk}" th:remove="tag"></span></a></li>
+                        <li><a href="/adminPage/product/laptop/add"><span
+                                th:text="#{adminPage.header.products.addLaptop}" th:remove="tag"></span></a></li>
+
+
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown"> <span
+                        th:text="#{adminPage.header.customers}" th:remove="tag"></span> <span
+                        class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/adminPage/customer/add"><span
+                                th:text="#{adminPage.header.customers.add}" th:remove="tag"></span></a></li>
+
+                        <li><a href="/adminPage/customer/showAll"><span
+                                th:text="#{adminPage.header.customers.showAll}" th:remove="tag"></span></a></li>
+
+                        <!-- <li class="divider"></li> -->
+                    </ul></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown"> <span
+                        th:text="#{adminPage.header.orders}" th:remove="tag"></span> <span
+                        class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/adminPage/order/showAll"><span
+                                th:text="#{adminPage.header.orders.showAll}" th:remove="tag"></span></a></li>
+
+                        <!-- <li class="divider"></li> -->
+                    </ul></li>
+
+                </th:block>
+
+
+
+
+
+
+
+            </ul>
+
+<!--            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control"
+                           th:placeholder="#{header.searchButton}"/>
+                </div>
+                <button type="submit" class="btn btn-default">
+                    <span th:text="#{header.searchButton}"></span>
+                </button>
+            </form>-->
+            <form th:if="${@shoppingCart.getNumberOfProduct()}!=0" class="navbar-form navbar-right" th:method="get" th:action="@{/shoppingCart/showAll}">
+                <button type="submit" class="btn btn-default">
 					<span class="glyphicon glyphicon-shopping-cart">
 					</span>
-					<th:block th:if="${@shoppingCart.getNumberOfProduct()}==0"  th:text="#{shoppingCart.empty}"></th:block>
-					<th:block th:unless="${@shoppingCart.getNumberOfProduct()}==0"  th:text="' '+#{shoppingCart.notEmpty(${@shoppingCart.getNumberOfProduct()})}"></th:block>
-				</button>				
-			</form>
-			<ul class="nav navbar-nav navbar-right">
-
-				<li><a href="?lang=en">English </a></li>
-				<li><a href="?lang=pl">Polish </a></li>
-
-				<li><a href="#"> <span th:text="#{header.signIn}"
-						th:remove="tag"></span>
-				</a></li>
-			</ul>
-		</div>
-		<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid -->
+                    <th:block th:text="' '+#{shoppingCart.notEmpty(${@shoppingCart.getNumberOfProduct()})}">
+                    </th:block>
+                </button>
+            </form>
+            <form sec:authorize="isAuthenticated()" class="navbar-form navbar-right" th:action="@{/logout}" method="post">
+                <button type="submit" class="btn btn-default">
+                    <th:block th:text="#{header.signOut}"></th:block>
+                </button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="?lang=en">English </a></li>
+                <li><a href="?lang=pl">Polish </a></li>
+                <li th:if="${@shoppingCart.getNumberOfProduct()}==0"><a href="#" th:text="#{shoppingCart.empty}"> </a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
 </nav>
+</html>
